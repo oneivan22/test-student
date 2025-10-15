@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Асинхронный тест производительности</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Асинхронный тест производительности</h1>
+
+      <div class="controls">
+        <label
+          >Режим
+          <select id="mode">
+            <option value="parallel">Parallel (Promise.all)</option>
+            <option value="serial">Serial (по очереди)</option>
+            <option value="race">Race (первый завершившийся)</option>
+            <option value="concurrency">Concurrency (лимит)</option>
+          </select>
+        </label>
+
+        <label
+          >Число задач
+          <input id="count" type="number" value="5" min="1" />
+        </label>
+
+        <label
+          >Средняя задержка (ms)
+          <input id="avg" type="number" value="500" min="10" />
+        </label>
+
+        <label
+          >Разброс (± ms)
+          <input id="spread" type="number" value="200" min="0" />
+        </label>
+
+        <label id="concurrencyLabel" style="display: none"
+          >Concurrency
+          <input id="concurrency" type="number" value="2" min="1" />
+        </label>
+
+        <button id="run">Запустить</button>
+      </div>
+
+      <div id="output" class="output"></div>
+    </div>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
